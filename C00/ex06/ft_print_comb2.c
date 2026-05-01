@@ -1,54 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugo <hugoalmeidaft@student.42sp.org.br>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 11:17:49 by hugo              #+#    #+#             */
-/*   Updated: 2026/04/28 15:33:07 by hugo             ###   ########.br       */
+/*   Created: 2026/04/25 11:16:37 by hugo              #+#    #+#             */
+/*   Updated: 2026/04/27 18:33:17 by hugo             ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 /*
-void	ft_putnbr(int nb);
+void	ft_print_comb2(void);
 
 int	main(void)
 {
-	ft_putnbr(0);
-	write(1, "\n", 1);
-	ft_putnbr(3);
-	write(1, "\n", 1);
-	ft_putnbr(45);
-	write(1, "\n", 1);
-	ft_putnbr(-67);
+	ft_print_comb2();
 	write(1, "\n", 1);
 }
 */
-void	ft_putnbr(int nb)
+void	ft_nbr(int x)
 {
-	long	n;
-	char	result;
-	int		div;
+	char	a;
+	char	b;
 
-	n = nb;
-	if (n < 0)
+	a = x / 10 + '0';
+	b = x % 10 + '0';
+	write(1, &a, 1);
+	write(1, &b, 1);
+}
+
+void	ft_print_comb2(void)
+{
+	int		a;
+	int		b;
+
+	a = -1;
+	while (++a <= 98)
 	{
-		write(1, "-", 1);
-		n *= -1;
-	}
-	if (n >= 0)
-	{
-		div = 1;
-		while (n / div > 9)
-			div *= 10;
-		while (div > 0)
+		b = a;
+		while (++b <= 99)
 		{
-			result = (n / div) + '0';
-			write(1, &result, 1);
-			n %= div;
-			div /= 10;
+			ft_nbr(a);
+			write(1, " ", 1);
+			ft_nbr(b);
+			if (!(a == 98 && b == 99))
+				write(1, ", ", 2);
 		}
 	}
 }

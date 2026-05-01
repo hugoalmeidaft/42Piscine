@@ -1,54 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb_btto.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugo <hugoalmeidaft@student.42sp.org.br>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 11:17:49 by hugo              #+#    #+#             */
-/*   Updated: 2026/04/28 15:33:07 by hugo             ###   ########.br       */
+/*   Created: 2026/04/26 09:45:19 by hugo              #+#    #+#             */
+/*   Updated: 2026/04/27 18:30:16 by hugo             ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 /*
-void	ft_putnbr(int nb);
+void	ft_print_comb(void);
 
 int	main(void)
 {
-	ft_putnbr(0);
-	write(1, "\n", 1);
-	ft_putnbr(3);
-	write(1, "\n", 1);
-	ft_putnbr(45);
-	write(1, "\n", 1);
-	ft_putnbr(-67);
+	ft_print_comb();
 	write(1, "\n", 1);
 }
 */
-void	ft_putnbr(int nb)
+void	ft_print_comb(void)
 {
-	long	n;
-	char	result;
-	int		div;
+	char	x[3];
 
-	n = nb;
-	if (n < 0)
+	x[0] = '0' - 1;
+	while (++x[0] <= '7')
 	{
-		write(1, "-", 1);
-		n *= -1;
-	}
-	if (n >= 0)
-	{
-		div = 1;
-		while (n / div > 9)
-			div *= 10;
-		while (div > 0)
+		x[1] = x[0];
+		while (++x[1] <= '8')
 		{
-			result = (n / div) + '0';
-			write(1, &result, 1);
-			n %= div;
-			div /= 10;
+			x[2] = x[1];
+			while (++x[2] <= '9')
+			{
+				write(1, &x, 3);
+				if (!(x[0] == '7'))
+					write(1, ", ", 2);
+			}
 		}
 	}
 }

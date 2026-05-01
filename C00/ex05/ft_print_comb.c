@@ -1,54 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugo <hugoalmeidaft@student.42sp.org.br>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 11:17:49 by hugo              #+#    #+#             */
-/*   Updated: 2026/04/28 15:33:07 by hugo             ###   ########.br       */
+/*   Created: 2026/04/25 10:24:53 by hugo              #+#    #+#             */
+/*   Updated: 2026/04/27 11:57:56 by hugo             ###   ########.br       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 /*
-void	ft_putnbr(int nb);
+void	ft_print_comb(void);
 
 int	main(void)
 {
-	ft_putnbr(0);
-	write(1, "\n", 1);
-	ft_putnbr(3);
-	write(1, "\n", 1);
-	ft_putnbr(45);
-	write(1, "\n", 1);
-	ft_putnbr(-67);
+	ft_print_comb();
 	write(1, "\n", 1);
 }
 */
-void	ft_putnbr(int nb)
+void	ft_print_comb(void)
 {
-	long	n;
-	char	result;
-	int		div;
+	char	a;
+	char	b;
+	char	c;
 
-	n = nb;
-	if (n < 0)
+	a = '0';
+	while (a <= '7')
 	{
-		write(1, "-", 1);
-		n *= -1;
-	}
-	if (n >= 0)
-	{
-		div = 1;
-		while (n / div > 9)
-			div *= 10;
-		while (div > 0)
+		b = a + 1;
+		while (b <= '8')
 		{
-			result = (n / div) + '0';
-			write(1, &result, 1);
-			n %= div;
-			div /= 10;
+			c = b + 1;
+			while (c <= '9')
+			{
+				write(1, &a, 1);
+				write(1, &b, 1);
+				write(1, &c, 1);
+				if (!(a == '7' && b == '8' && c == '9'))
+					write(1, ", ", 2);
+				c++;
+			}
+			b++;
 		}
+		a++;
 	}
 }

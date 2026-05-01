@@ -1,13 +1,25 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hugo <hugoalmeidaft@student.42sp.org.br>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/25 09:23:37 by hugo              #+#    #+#             */
+/*   Updated: 2026/04/27 11:48:34 by hugo             ###   ########.br       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <unistd.h>
+/*
+void	ft_putchar(char c);
+
+int	main(void)
+{
+	ft_putchar('a');
+}
+*/
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
-/*
-int	main()
-{
-	char c = 'x';
-	ft_putchar(c);
-	ft_putchar('\n');
-}*/
